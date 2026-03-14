@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Github, Linkedin, Twitter, ArrowRight, MessageCircle } from 'lucide-react';
+import MagicBento from './MagicBento';
 import './Hero.css';
 
 const stats = [
@@ -33,37 +34,65 @@ export default function Hero() {
 
         {/* Left — Profile Card */}
         <motion.div className="profile-card" {...fadeUp(0.1)}>
-          <div className="avatar-ring">
-            <img src="/mee.jpg" alt="Wahida Akhter" className="avatar-img" />
-            <span className="available-dot" title="Available for work" />
-          </div>
-          <h2 className="profile-name">Wahida Akhter</h2>
-          <p className="profile-role">Creative Developer</p>
-          <div className="profile-location">
-            <MapPin size={14} />
-            <span>Dhaka, Bangladesh</span>
-          </div>
-          <div className="profile-divider" />
-          <div className="profile-stats">
-            {stats.map(({ value, label }) => (
-              <div key={label} className="profile-stat">
-                <span className="stat-value">{value}</span>
-          </div>
-          <div className="profile-divider" />
-          <a href="#contact" className="btn-hire">
-            Hire Me
-          </a>
-          <div className="profile-socials">
-            {[
-              { Icon: Github,   href: 'https://github.com' },
-              { Icon: Linkedin, href: 'https://linkedin.com' },
-              { Icon: Twitter,  href: 'https://twitter.com' },
-            ].map(({ Icon, href }) => (
-              <a key={href} href={href} target="_blank" rel="noreferrer" className="social-icon">
-                <Icon size={18} />
-              </a>
-            ))}
-          </div>
+          <MagicBento 
+            enableStars
+            enableSpotlight
+            enableBorderGlow
+            glowColor="0, 255, 133"
+            className="profile-card-magic"
+          >
+            <div className="profile-card-content">
+              <div className="avatar-ring">
+                <img src="/mee.jpg" alt="Wahida Akhter" className="avatar-img" />
+                <span className="available-dot" title="Available for work" />
+              </div>
+              <h2 className="profile-name">Wahida Akhter</h2>
+              <p className="profile-role">Creative Developer</p>
+              <div className="profile-location">
+                <MapPin size={14} />
+                <span>Dhaka, Bangladesh</span>
+              </div>
+              <div className="profile-divider" />
+              <div className="profile-stats">
+                {stats.map(({ value, label }) => (
+                  <div key={label} className="profile-stat">
+                    <span className="stat-value">{value}</span>
+                    <span className="stat-label">{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="profile-divider" />
+              <MagicBento 
+                textAutoHide={true}
+                enableStars
+                enableSpotlight
+                enableBorderGlow={true}
+                enableTilt={false}
+                enableMagnetism={false}
+                clickEffect
+                spotlightRadius={400}
+                particleCount={12}
+                glowColor="255, 255, 255"
+                disableAnimations={false}
+                className="hire-magic-wrap"
+              >
+                <a href="#contact" className="btn-hire">
+                  Let's Talk
+                </a>
+              </MagicBento>
+              <div className="profile-socials">
+                {[
+                  { Icon: Github,   href: 'https://github.com' },
+                  { Icon: Linkedin, href: 'https://linkedin.com' },
+                  { Icon: Twitter,  href: 'https://twitter.com' },
+                ].map(({ Icon, href }) => (
+                  <a key={href} href={href} target="_blank" rel="noreferrer" className="social-icon">
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </MagicBento>
         </motion.div>
 
         {/* Right — Headline */}
@@ -128,8 +157,7 @@ export default function Hero() {
             </div>
           </motion.h1>
           <motion.p className="hero-sub" {...fadeUp(0.3)}>
-            I craft beautiful, performant digital experiences — from elegant front-ends to
-            robust back-end systems. Passionate about design and clean code.
+            Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.
           </motion.p>
 
           {/* Decorative skill tags */}
