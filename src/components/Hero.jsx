@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Github, Linkedin, Twitter, ArrowRight, MessageCircle } from 'lucide-react';
 import './Hero.css';
 
@@ -8,6 +9,8 @@ const stats = [
   { value: '+10', label: 'Happy Clients' },
 ];
 
+const words = ["Reality", "Impact", "Success", "Solutions", "Innovation"];
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -15,6 +18,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section id="hero" className="hero-section">
       <div className="hero-bg-glow" />
@@ -27,7 +38,7 @@ export default function Hero() {
             <span className="available-dot" title="Available for work" />
           </div>
           <h2 className="profile-name">Wahida Akhter</h2>
-          <p className="profile-role">Full-Stack Developer</p>
+          <p className="profile-role">Creative Developer</p>
           <div className="profile-location">
             <MapPin size={14} />
             <span>Dhaka, Bangladesh</span>
@@ -37,10 +48,11 @@ export default function Hero() {
             {stats.map(({ value, label }) => (
               <div key={label} className="profile-stat">
                 <span className="stat-value">{value}</span>
-                <span className="stat-label">{label}</span>
-              </div>
-            ))}
           </div>
+          <div className="profile-divider" />
+          <a href="#contact" className="btn-hire">
+            Hire Me
+          </a>
           <div className="profile-socials">
             {[
               { Icon: Github,   href: 'https://github.com' },
@@ -59,22 +71,66 @@ export default function Hero() {
           <motion.span className="section-tag" {...fadeUp(0.15)}>
             ✦ Open to Opportunities
           </motion.span>
-          <motion.h1 className="hero-heading" {...fadeUp(0.22)}>
-            Transforming Your Ideas<br /> into{' '}
-            <span className="hero-accent">Reality</span>
+          <motion.h1 
+            className="hero-heading" 
+            variants={{
+              visible: { transition: { staggerChildren: 0.08 } },
+            }}
+            initial="hidden"
+            animate="visible"
+          >
+            {"Transforming Your Ideas into".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                className="word"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+                }}
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+            <div style={{ position: 'relative', display: 'inline-flex', verticalAlign: 'middle' }}>
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={words[index]}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  style={{ display: 'flex' }}
+                >
+                  {words[index].split("").map((char, i) => (
+                    <motion.span
+                      key={i}
+                      className="hero-accent"
+                      variants={{
+                        hidden: { opacity: 0, y: 15, filter: 'blur(8px)' },
+                        visible: { 
+                          opacity: 1, 
+                          y: 0, 
+                          filter: 'blur(0px)',
+                          transition: { delay: i * 0.03, duration: 0.4, ease: "easeOut" } 
+                        },
+                        exit: { 
+                          opacity: 0, 
+                          y: -15, 
+                          filter: 'blur(8px)',
+                          transition: { duration: 0.3 } 
+                        }
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </motion.h1>
           <motion.p className="hero-sub" {...fadeUp(0.3)}>
             I craft beautiful, performant digital experiences — from elegant front-ends to
             robust back-end systems. Passionate about design and clean code.
           </motion.p>
-          <motion.div className="hero-ctas" {...fadeUp(0.38)}>
-            <a href="#contact" className="btn-primary">
-              <MessageCircle size={17} /> Let's Talk
-            </a>
-            <a href="#projects" className="btn-outline">
-              My Work <ArrowRight size={17} />
-            </a>
-          </motion.div>
 
           {/* Decorative skill tags */}
           <motion.div className="hero-tags" {...fadeUp(0.46)}>

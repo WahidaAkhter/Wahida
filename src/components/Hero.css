@@ -139,6 +139,27 @@
   gap: 12px;
 }
 
+.btn-hire {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00FF85, #00E0FF);
+  color: #080d14;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 15px rgba(0, 255, 133, 0.2);
+  display: block;
+}
+
+.btn-hire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 133, 0.4);
+  filter: brightness(1.1);
+}
+
 .social-icon {
   width: 36px;
   height: 36px;
@@ -165,16 +186,37 @@
 .hero-heading {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin: 12px 0 20px;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 12px 0 24px;
+  letter-spacing: -0.04em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-heading .word {
+  display: inline-block;
 }
 
 .hero-accent {
-  background: linear-gradient(135deg, #00FF85, #052B24);
+  background: linear-gradient(
+    90deg, 
+    #00FF85, 
+    #00E0FF, 
+    #00FF85
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
+  font-weight: 800;
+  filter: drop-shadow(0 0 15px rgba(0, 255, 133, 0.3));
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
 }
 
 .hero-sub {
