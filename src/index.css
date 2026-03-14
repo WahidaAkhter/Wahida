@@ -12,24 +12,24 @@
 
 :root {
   /* 60% - Primary Background */
-  --bg: #F8F9FA; /* Soft Ghost White */
+  --bg: #080d14; /* Deep Dark Navy */
   
   /* 30% - Secondary Elements / Cards */
-  --bg-card: rgba(255, 255, 255, 0.4); /* Glassy Pearl */
-  --glass-blur: 16px;
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --bg-card: rgba(255, 255, 255, 0.06); /* Dark Glassy */
+  --glass-blur: 18px;
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   
   /* 10% - Accent Color */
   --accent: #00FF85; /* Neon Bloom Green */
-  --accent-glow: rgba(0, 255, 133, 0.3);
+  --accent-glow: rgba(0, 255, 133, 0.4);
   --accent-hover: #00e677;
   
   /* Typography & Details */
-  --text: #052B24; /* Forest Night (Bold Typography) */
-  --text-muted: #1A1A1B; /* Charcoal Ink (Secondary Text) */
-  --text-dim: #4A4A4B;
-  --border: rgba(5, 43, 36, 0.08); /* Subtle Forest Night border */
+  --text: #F0F4F8;          /* Off-white */
+  --text-muted: #A8B8C8;    /* Muted slate */
+  --text-dim: #6B7E90;
+  --border: rgba(255, 255, 255, 0.1);
   
   --radius: 20px;
   --radius-sm: 12px;
@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: 'Outfit', sans-serif;
   line-height: 1.6;

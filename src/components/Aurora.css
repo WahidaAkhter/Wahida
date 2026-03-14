@@ -1,0 +1,107 @@
+.aurora-root {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #080d14;
+}
+
+/* Each aurora blob is a large, blurry, semi-transparent shape */
+.aurora-layer {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* --- Aurora 1: Mint Green (matches accent) --- */
+.aurora-1 {
+  width: 90vw;
+  height: 70vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 255, 133, 0.55) 0%,
+    rgba(0, 255, 133, 0.18) 55%,
+    transparent 100%
+  );
+  top: -25vh;
+  left: -25vw;
+  animation: aurora-drift-1 18s ease-in-out infinite;
+}
+
+/* --- Aurora 2: Cyan / Teal --- */
+.aurora-2 {
+  width: 75vw;
+  height: 60vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 230, 210, 0.5) 0%,
+    rgba(0, 190, 255, 0.2) 55%,
+    transparent 100%
+  );
+  top: 5vh;
+  right: -30vw;
+  animation: aurora-drift-2 22s ease-in-out infinite;
+}
+
+/* --- Aurora 3: Purple / Violet --- */
+.aurora-3 {
+  width: 70vw;
+  height: 55vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(160, 80, 255, 0.45) 0%,
+    rgba(110, 60, 220, 0.15) 55%,
+    transparent 100%
+  );
+  bottom: 0vh;
+  left: 5vw;
+  animation: aurora-drift-3 26s ease-in-out infinite;
+}
+
+/* --- Aurora 4: Indigo / Blue --- */
+.aurora-4 {
+  width: 65vw;
+  height: 55vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(60, 140, 255, 0.4) 0%,
+    rgba(40, 100, 230, 0.12) 55%,
+    transparent 100%
+  );
+  bottom: -15vh;
+  right: 0vw;
+  animation: aurora-drift-4 20s ease-in-out infinite;
+}
+
+/* --- Keyframes --- */
+@keyframes aurora-drift-1 {
+  0%   { opacity: 0.75; transform: translate(0, 0) scale(1); }
+  25%  { opacity: 1;    transform: translate(8vw, 6vh) scale(1.12); }
+  50%  { opacity: 0.8;  transform: translate(4vw, 12vh) scale(0.96); }
+  75%  { opacity: 0.9;  transform: translate(-4vw, 6vh) scale(1.06); }
+  100% { opacity: 0.75; transform: translate(0, 0) scale(1); }
+}
+
+@keyframes aurora-drift-2 {
+  0%   { opacity: 0.7;  transform: translate(0, 0) scale(1); }
+  30%  { opacity: 1;    transform: translate(-10vw, 8vh) scale(1.1); }
+  60%  { opacity: 0.75; transform: translate(-5vw, 14vh) scale(0.93); }
+  100% { opacity: 0.7;  transform: translate(0, 0) scale(1); }
+}
+
+@keyframes aurora-drift-3 {
+  0%   { opacity: 0.65; transform: translate(0, 0) scale(1); }
+  35%  { opacity: 0.9;  transform: translate(10vw, -8vh) scale(1.14); }
+  70%  { opacity: 0.7;  transform: translate(5vw, -14vh) scale(0.9); }
+  100% { opacity: 0.65; transform: translate(0, 0) scale(1); }
+}
+
+@keyframes aurora-drift-4 {
+  0%   { opacity: 0.6;  transform: translate(0, 0) scale(1); }
+  40%  { opacity: 0.85; transform: translate(-8vw, -6vh) scale(1.12); }
+  80%  { opacity: 0.65; transform: translate(-4vw, -10vh) scale(0.96); }
+  100% { opacity: 0.6;  transform: translate(0, 0) scale(1); }
+}

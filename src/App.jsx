@@ -8,12 +8,14 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Aurora from './components/Aurora';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <>
+      <Aurora />
       <IntroPreloader onComplete={() => setLoaded(true)} />
       {loaded && <Navbar />}
       <main>

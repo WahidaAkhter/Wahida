@@ -23,7 +23,7 @@ export default function Hero() {
         {/* Left — Profile Card */}
         <motion.div className="profile-card" {...fadeUp(0.1)}>
           <div className="avatar-ring">
-            <img src="/profile.png" alt="Wahida Akhter" className="avatar-img" />
+            <img src="/mee.jpg" alt="Wahida Akhter" className="avatar-img" />
             <span className="available-dot" title="Available for work" />
           </div>
           <h2 className="profile-name">Wahida Akhter</h2>
@@ -57,7 +57,7 @@ export default function Hero() {
         {/* Right — Headline */}
         <div className="hero-copy">
           <motion.span className="section-tag" {...fadeUp(0.15)}>
-            ✦ Available for Projects
+            ✦ Open to Opportunities
           </motion.span>
           <motion.h1 className="hero-heading" {...fadeUp(0.22)}>
             Transforming Your Ideas<br /> into{' '}
