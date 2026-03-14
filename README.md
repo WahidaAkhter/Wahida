@@ -1,16 +1,48 @@
-# React + Vite
+# Wahida Akhter — Full-Stack Portfolio ✦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, dark-themed personal portfolio website designed for a modern, high-end user experience. Built with a focus on performance, smooth animations, and a clean aesthetic.
 
-Currently, two official plugins are available:
+![Hero Section](file:///C:/Users/mdsiu/.gemini/antigravity/brain/c76228f6-6603-4e3f-8cce-3880ed03f32a/hero_section_1773499151863.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Experience the Flow
 
-## React Compiler
+The site features a cinematic user journey:
+- **Intro Preloader**: A word-reveal animation that transitions seamlessly into the main content.
+- **Floating Dock Navigation**: A pill-shaped, interactive navbar with scroll-spy active state tracking.
+- **Dynamic Hero Section**: Featuring a profile card with real-time availability indicator and key performance stats.
+- **Project Showcase**: Image-focused cards with hover-reveal details and technology tags.
+- **Categorized Skills**: A clean, animated tech stack overview.
+- **Interactive Timeline**: A vertical work experience tracker.
+- **Express Backend**: A Node.js API to handle contact form submissions with real-time terminal logging.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19, Vite, Framer Motion, Lucide React, CSS Variables.
+- **Backend**: Node.js, Express, CORS, Dotenv.
+- **Design**: Dark theme system with purple accents and **Outfit** typography.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🏁 Getting Started
+
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed.
+
+### 2. Frontend Setup
+```bash
+# Navigate to the project root
+npm install
+npm run dev
+```
+The site will be available at `http://localhost:5173/`.
+
+### 3. Backend Setup
+```bash
+# Navigate to the server directory
+cd server
+npm install
+node index.js
+```
+The API server will run on `http://localhost:5000/`.
+
+---
+*Made with 💜 by Wahida Akhter*
+

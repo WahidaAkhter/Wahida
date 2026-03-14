@@ -1,0 +1,60 @@
+.navbar-dock {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card); /* Glassy Pearl */
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 60px;
+  padding: 10px 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.dock-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #717172;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.dock-btn:hover {
+  color: #1A1A1B;
+}
+
+.dock-btn.active {
+  color: #00D16D;
+}
+
+.dock-indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 255, 133, 0.1);
+  border: 1px solid rgba(0, 255, 133, 0.3);
+  z-index: -1;
+}
+
+.dock-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  line-height: 1;
+}
