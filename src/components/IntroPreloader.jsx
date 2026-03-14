@@ -11,81 +11,95 @@ export default function IntroPreloader({ onComplete }) {
       setTimeout(() => {
         document.body.style.overflow = '';
         onComplete && onComplete();
-      }, 900);
-    }, 2600);
+      }, 1000); // Wait for exit animation
+    }, 3200);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
-  const words = ['Wahida', 'Akhter'];
+  const firstName = "Wahida";
+  const lastName = "Akhter";
+  
+  const containerVars = {
+    exit: {
+      opacity: 0,
+      filter: 'blur(30px)',
+      scale: 1.1,
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
+  const letterVars = {
+    initial: { opacity: 0, y: 15, filter: 'blur(10px)' },
+    animate: i => ({
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        delay: 0.4 + i * 0.08,
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    })
+  };
 
   return (
     <AnimatePresence>
       {show && (
         <motion.div
-          initial={{ y: 0 }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
+          variants={containerVars}
+          initial={{ opacity: 1 }}
+          exit="exit"
           style={{
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            background: '#FFFFFF',
+            background: '#052B24', // Dark background (Forest Night) for intro
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
-            gap: '8px',
           }}
         >
-          <div style={{ overflow: 'hidden' }}>
-            <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-              style={{
-                fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                fontWeight: 700,
-                color: '#1A1A1B',
-                letterSpacing: '-0.03em',
-                display: 'flex',
-                gap: '0.4em',
-              }}
-            >
-              {words.map((word, i) => (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '0.3em' }}>
+              {firstName.split("").map((char, i) => (
                 <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.25 + i * 0.12 }}
-                  style={{ display: 'inline-block', color: i === 1 ? '#00FF85' : '#1A1A1B' }}
+                  key={`first-${i}`}
+                  custom={i}
+                  variants={letterVars}
+                  initial="initial"
+                  animate="animate"
+                  style={{
+                    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                    fontWeight: 800,
+                    color: '#FFFFFF',
+                    display: 'inline-block',
+                  }}
                 >
-                  {word}
+                  {char}
                 </motion.span>
               ))}
-            </motion.div>
+            </div>
+            <div style={{ display: 'flex', gap: '0.3em' }}>
+              {lastName.split("").map((char, i) => (
+                <motion.span
+                  key={`last-${i}`}
+                  custom={i + firstName.length}
+                  variants={letterVars}
+                  initial="initial"
+                  animate="animate"
+                  style={{
+                    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                    fontWeight: 800,
+                    color: '#00FF85', // Accent color for last name
+                    display: 'inline-block',
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
           </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-            style={{ color: '#717172', fontSize: '1rem', letterSpacing: '0.2em' }}
-          >
-            Portfolio ✦ 2025
-          </motion.p>
-          {/* Loading bar */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              height: '3px',
-              background: 'linear-gradient(90deg, #00FF85, #052B24)',
-              originX: 0,
-            }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 2.4, ease: 'linear' }}
-          />
         </motion.div>
       )}
     </AnimatePresence>
