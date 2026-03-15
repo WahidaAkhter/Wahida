@@ -40,6 +40,12 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+const slideFromTopLeft = (delay = 0) => ({
+  initial: { opacity: 0, x: -60, y: -60 },
+  animate: { opacity: 1, x: 0, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
@@ -55,7 +61,7 @@ export default function Hero() {
       <div className="hero-inner">
 
         {/* Left — Profile Card */}
-        <motion.div className="profile-card" {...fadeUp(0.1)}>
+        <motion.div className="profile-card" {...slideFromTopLeft(0.1)}>
           <MagicBento 
             enableStars
             enableSpotlight
