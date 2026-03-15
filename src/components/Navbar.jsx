@@ -14,8 +14,14 @@ const links = [
 export default function Navbar() {
   const [active, setActive] = useState('hero');
   const [tooltip, setTooltip] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -28,7 +34,10 @@ export default function Navbar() {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollTo = (id) => {
@@ -38,7 +47,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="navbar-dock"
+      className={`navbar-dock ${scrolled ? 'scrolled' : ''}`}
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

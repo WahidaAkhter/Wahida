@@ -1,22 +1,30 @@
-/* ── Floating Dock ─────────────────────────────────────────── */
 .navbar-dock {
   position: fixed;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 32px;
+  right: 32px;
   z-index: 1000;
   display: flex;
+  flex-direction: column; /* Vertical orientation */
   align-items: center;
-  gap: 2px;
-  background: rgba(8, 13, 20, 0.85);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-radius: 20px;
-  padding: 8px 10px;
-  border: 1px solid var(--glass-border);
+  gap: 6px;
+  background: rgba(8, 13, 20, 0.7);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 24px;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.04);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-dock.scrolled {
+  background: rgba(8, 13, 20, 0.1); /* Low opacity on scroll */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ── Each icon slot ────────────────────────────────────────── */
@@ -66,10 +74,10 @@
 /* ── Tooltip ───────────────────────────────────────────────── */
 .dock-tooltip {
   position: absolute;
-  bottom: auto;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  right: calc(100% + 12px);
+  left: auto;
+  transform: translateY(-50%);
   background: rgba(8, 13, 20, 0.95);
   border: 1px solid var(--glass-border);
   color: var(--text-muted);
@@ -86,11 +94,9 @@
 .dock-tooltip::after {
   content: '';
   position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  top: auto;
-  bottom: 100%;
-  border-top-color: transparent;
-  border-bottom-color: rgba(8, 13, 20, 0.95);
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: rgba(8, 13, 20, 0.95);
 }

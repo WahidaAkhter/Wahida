@@ -2,7 +2,29 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Github, Linkedin, Twitter, ArrowRight, MessageCircle } from 'lucide-react';
 import MagicBento from './MagicBento';
+import LogoLoop from './LogoLoop';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiNodedotjs, 
+  SiFigma, 
+  SiPython, 
+  SiMongodb 
+} from 'react-icons/si';
 import './Hero.css';
+
+const techLogos = [
+  { node: <SiReact color="#61DAFB" />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs color="#ffffff" />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript color="#3178C6" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss color="#06B6D4" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiNodedotjs color="#339933" />, title: "Node.js", href: "https://nodejs.org" },
+  { node: <SiFigma color="#F24E1E" />, title: "Figma", href: "https://figma.com" },
+  { node: <SiPython color="#3776AB" />, title: "Python", href: "https://python.org" },
+  { node: <SiMongodb color="#47A248" />, title: "MongoDB", href: "https://mongodb.com" },
+];
 
 const stats = [
   { value: '+3', label: 'Years Experience' },
@@ -72,7 +94,7 @@ export default function Hero() {
                 clickEffect
                 spotlightRadius={400}
                 particleCount={12}
-                glowColor="255, 255, 255"
+                glowColor="0, 255, 133"
                 disableAnimations={false}
                 className="hire-magic-wrap"
               >
@@ -160,11 +182,20 @@ export default function Hero() {
             Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.
           </motion.p>
 
-          {/* Decorative skill tags */}
-          <motion.div className="hero-tags" {...fadeUp(0.46)}>
-            {['React', 'Node.js', 'TypeScript', 'Figma', 'Python', 'MongoDB'].map((t) => (
-              <span key={t} className="hero-tag">{t}</span>
-            ))}
+          {/* Decorative Logo Loop */}
+          <motion.div className="hero-logo-loop" {...fadeUp(0.46)}>
+            <LogoLoop
+              logos={techLogos}
+              speed={40}
+              direction="left"
+              logoHeight={32}
+              gap={50}
+              pauseOnHover
+              scaleOnHover
+              fadeOut
+              fadeOutColor="#080d14"
+              ariaLabel="Technology stack"
+            />
           </motion.div>
         </div>
       </div>

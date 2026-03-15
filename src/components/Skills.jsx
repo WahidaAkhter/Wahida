@@ -25,6 +25,40 @@ const skillGroups = [
   },
 ];
 
+const SkillGroup = ({ group, gi }) => {
+  const groupRef = useRef(null);
+  const groupInView = useInView(groupRef, { once: true, margin: '-40px' });
+  
+  return (
+    <motion.div
+      ref={groupRef}
+      className="skill-group"
+      initial={{ opacity: 0, y: 30 }}
+      animate={groupInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: gi * 0.1 }}
+    >
+      <div className="skill-group-header">
+        <span className="skill-dot" style={{ background: group.color }} />
+        <h3 className="skill-category">{group.category}</h3>
+      </div>
+      <div className="skill-tags">
+        {group.skills.map((skill, si) => (
+          <motion.span
+            key={skill}
+            className="skill-tag"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={groupInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: gi * 0.1 + si * 0.05 }}
+            style={{ '--skill-color': group.color }}
+          >
+            {skill}
+          </motion.span>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Skills() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
@@ -47,39 +81,9 @@ export default function Skills() {
         </motion.div>
 
         <div className="skills-grid">
-          {skillGroups.map((group, gi) => {
-            const groupRef = useRef(null);
-            const groupInView = useInView(groupRef, { once: true, margin: '-40px' });
-            return (
-              <motion.div
-                key={group.category}
-                ref={groupRef}
-                className="skill-group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={groupInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: gi * 0.1 }}
-              >
-                <div className="skill-group-header">
-                  <span className="skill-dot" style={{ background: group.color }} />
-                  <h3 className="skill-category">{group.category}</h3>
-                </div>
-                <div className="skill-tags">
-                  {group.skills.map((skill, si) => (
-                    <motion.span
-                      key={skill}
-                      className="skill-tag"
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={groupInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: gi * 0.1 + si * 0.05 }}
-                      style={{ '--skill-color': group.color }}
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+          {skillGroups.map((group, gi) => (
+            <SkillGroup key={group.category} group={group} gi={gi} />
+          ))}
         </div>
       </div>
     </section>

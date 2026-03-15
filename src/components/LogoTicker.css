@@ -1,0 +1,90 @@
+.ticker-wrap {
+  width: 100%;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.ticker-header {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+}
+
+.ticker-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.ticker-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+  display: flex;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  padding-left: 20px;
+}
+
+.ticker-item {
+  flex-shrink: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item:hover {
+  background: rgba(0, 255, 133, 0.08);
+  border-color: rgba(0, 255, 133, 0.3);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Edge Fading Overlays */
+.ticker-overlay-left,
+.ticker-overlay-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ticker-overlay-left {
+  left: 0;
+  background: linear-gradient(to right, #0a0a0a 0%, transparent 100%);
+}
+
+.ticker-overlay-right {
+  right: 0;
+  background: linear-gradient(to left, #0a0a0a 0%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .ticker-overlay-left,
+  .ticker-overlay-right {
+    width: 25%;
+  }
+}
