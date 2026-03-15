@@ -9,7 +9,7 @@ const projects = [
     desc: 'A real-time financial tracking SaaS with interactive charts, CSV import, and multi-currency support.',
     tags: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
     color: '#7c3aed',
-    github: 'https://github.com',
+    github: 'https://github.com/WahidaAkhter',
     live: 'https://example.com',
   },
   {
@@ -106,7 +106,7 @@ export default function Projects() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
         >
-          <span className="section-tag">✦ My Work</span>
+          <span className="section-tag"><span className="star-spin">✦</span> My Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
             A selection of things I've built — from SaaS products to open-source tools.

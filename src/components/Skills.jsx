@@ -73,7 +73,7 @@ export default function Skills() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
         >
-          <span className="section-tag">✦ Skills</span>
+          <span className="section-tag"><span className="star-spin">✦</span> Skills</span>
           <h2 className="section-title">My Tech Stack</h2>
           <p className="section-subtitle">
             Tools and technologies I work with on a daily basis.

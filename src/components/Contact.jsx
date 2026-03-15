@@ -34,7 +34,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
         >
-          <span className="section-tag">✦ Contact</span>
+          <span className="section-tag"><span className="star-spin">✦</span> Contact</span>
           <h2 className="section-title">Let's Work Together</h2>
           <p className="section-subtitle">
             Have a project in mind? I'd love to hear from you. Send a message and I'll get back within 24 hours.

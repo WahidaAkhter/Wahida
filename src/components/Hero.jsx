@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Github, Linkedin, Twitter, ArrowRight, MessageCircle } from 'lucide-react';
+import { MapPin, Github, Linkedin, Mail, ArrowRight, MessageCircle } from 'lucide-react';
 import MagicBento from './MagicBento';
 import LogoLoop from './LogoLoop';
 import { 
@@ -29,7 +29,7 @@ const techLogos = [
 const stats = [
   { value: '+3', label: 'Years Experience' },
   { value: '+15', label: 'Projects Done' },
-  { value: '+10', label: 'Happy Clients' },
+  { value: '+10', label: 'Recent Projects' },
 ];
 
 const words = ["Reality", "Impact", "Success", "Solutions", "Innovation"];
@@ -104,9 +104,9 @@ export default function Hero() {
               </MagicBento>
               <div className="profile-socials">
                 {[
-                  { Icon: Github,   href: 'https://github.com' },
-                  { Icon: Linkedin, href: 'https://linkedin.com' },
-                  { Icon: Twitter,  href: 'https://twitter.com' },
+                  { Icon: Github,   href: 'https://github.com/WahidaAkhter' },
+                  { Icon: Linkedin, href: 'https://www.linkedin.com/in/wahida-akhter/' },
+                  { Icon: Mail,     href: 'mailto:wahidacse280@gmail.com' },
                 ].map(({ Icon, href }) => (
                   <a key={href} href={href} target="_blank" rel="noreferrer" className="social-icon">
                     <Icon size={18} />
@@ -120,7 +120,7 @@ export default function Hero() {
         {/* Right — Headline */}
         <div className="hero-copy">
           <motion.span className="section-tag" {...fadeUp(0.15)}>
-            ✦ Open to Opportunities
+            <span className="star-spin">✦</span> Open to Opportunities
           </motion.span>
           <motion.h1 
             className="hero-heading" 

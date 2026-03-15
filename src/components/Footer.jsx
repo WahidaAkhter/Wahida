@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -11,9 +11,9 @@ export default function Footer() {
         </div>
         <div className="footer-socials">
           {[
-            { href: 'https://github.com',   Icon: Github },
-            { href: 'https://linkedin.com', Icon: Linkedin },
-            { href: 'https://twitter.com',  Icon: Twitter },
+            { href: 'https://github.com/WahidaAkhter',   Icon: Github },
+            { href: 'https://www.linkedin.com/in/wahida-akhter/', Icon: Linkedin },
+            { href: 'mailto:wahidacse280@gmail.com', Icon: Mail },
           ].map(({ href, Icon }) => (
             <a key={href} href={href} className="footer-social" target="_blank" rel="noreferrer">
               <Icon size={17} />

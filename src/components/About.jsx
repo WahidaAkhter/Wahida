@@ -44,7 +44,7 @@ export default function About() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65 }}
           >
-            <span className="section-tag">✦ About Me</span>
+            <span className="section-tag"><span className="star-spin">✦</span> About Me</span>
             <h2 className="section-title">Passionate about<br />Building &amp; Design</h2>
             <p className="section-subtitle" style={{ marginBottom: 20 }}>
               I'm a full-stack developer with a love for crafting beautiful digital experiences.

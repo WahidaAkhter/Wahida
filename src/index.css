@@ -59,6 +59,44 @@ body {
   padding: 100px 24px;
 }
 
+.star-spin {
+  display: inline-block;
+  font-size: 1.1em;
+  transform-origin: center;
+  animation:
+    star-spin  3s  linear      infinite,
+    star-glow  3s  ease-in-out infinite;
+  will-change: transform, filter, color;
+}
+
+/* Combined rotate + scale pulse in one keyframe to avoid transform conflicts */
+@keyframes star-spin {
+  0%   { transform: rotate(0deg)   scale(1);    }
+  25%  { transform: rotate(90deg)  scale(1.45); }
+  50%  { transform: rotate(180deg) scale(1);    }
+  75%  { transform: rotate(270deg) scale(1.45); }
+  100% { transform: rotate(360deg) scale(1);    }
+}
+
+@keyframes star-glow {
+  0%   {
+    color: #00FF85;
+    filter: drop-shadow(0 0 4px #00FF85) drop-shadow(0 0 10px rgba(0,255,133,0.7));
+  }
+  33%  {
+    color: #00E0FF;
+    filter: drop-shadow(0 0 6px #00E0FF) drop-shadow(0 0 14px rgba(0,224,255,0.7));
+  }
+  66%  {
+    color: #a78bfa;
+    filter: drop-shadow(0 0 6px #a78bfa) drop-shadow(0 0 14px rgba(167,139,250,0.7));
+  }
+  100% {
+    color: #00FF85;
+    filter: drop-shadow(0 0 4px #00FF85) drop-shadow(0 0 10px rgba(0,255,133,0.7));
+  }
+}
+
 .section-tag {
   display: inline-block;
   font-size: 0.75rem;
