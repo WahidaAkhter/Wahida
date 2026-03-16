@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import IconCloud from './IconCloud';
+import TiltedCard from './TiltedCard';
 import './Skills.css';
 
 const skillGroups = [
@@ -57,32 +58,34 @@ const SkillGroup = ({ group, gi }) => {
   const groupInView = useInView(groupRef, { once: true, margin: '-40px' });
   
   return (
-    <motion.div
-      ref={groupRef}
-      className="skill-group"
-      initial={{ opacity: 0, y: 30 }}
-      animate={groupInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: gi * 0.1 }}
-    >
-      <div className="skill-group-header">
-        <span className="skill-dot" style={{ background: group.color }} />
-        <h3 className="skill-category">{group.category}</h3>
-      </div>
-      <div className="skill-tags">
-        {group.skills.map((skill, si) => (
-          <motion.span
-            key={skill}
-            className="skill-tag"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={groupInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: gi * 0.1 + si * 0.05 }}
-            style={{ '--skill-color': group.color }}
-          >
-            {skill}
-          </motion.span>
-        ))}
-      </div>
-    </motion.div>
+    <TiltedCard>
+      <motion.div
+        ref={groupRef}
+        className="skill-group"
+        initial={{ opacity: 0, y: 30 }}
+        animate={groupInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.55, delay: gi * 0.1 }}
+      >
+        <div className="skill-group-header">
+          <span className="skill-dot" style={{ background: group.color }} />
+          <h3 className="skill-category">{group.category}</h3>
+        </div>
+        <div className="skill-tags">
+          {group.skills.map((skill, si) => (
+            <motion.span
+              key={skill}
+              className="skill-tag"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={groupInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: gi * 0.1 + si * 0.05 }}
+              style={{ '--skill-color': group.color }}
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </motion.div>
+    </TiltedCard>
   );
 };
 

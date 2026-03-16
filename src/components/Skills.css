@@ -18,13 +18,13 @@
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 28px;
-  transition: all 0.3s ease;
+  height: 100%;
+  transition: border-color 0.3s ease;
   box-shadow: var(--card-shadow);
 }
 
 .skill-group:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
 }
 
 .skill-group-header {
