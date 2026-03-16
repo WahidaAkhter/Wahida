@@ -137,22 +137,25 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--accent);
-  color: var(--text); /* Dark text on neon green for high contrast */
-  border: none;
+  background: rgba(0, 255, 133, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(0, 255, 133, 0.3);
   border-radius: 50px;
   padding: 12px 28px;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: 'Outfit', sans-serif;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 0 20px var(--accent-glow);
+  background: rgba(0, 255, 133, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 255, 133, 0.15);
   transform: translateY(-2px);
 }
 

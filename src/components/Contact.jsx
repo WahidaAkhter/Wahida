@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import axios from 'axios';
-import { Send, CheckCircle, AlertCircle, Mail, MapPin, Clock } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Mail, MapPin, Phone, MessageSquare, User, AtSign } from 'lucide-react';
 import './Contact.css';
 
 const API_URL = 'http://localhost:5000/api/contact';
@@ -24,78 +24,119 @@ export default function Contact() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="contact">
+    <section id="contact" className="contact-wrapper">
       <div className="section">
         <motion.div
           ref={ref}
-          className="section-header"
+          className="section-header center"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="section-tag"><span className="star-spin">✦</span> Contact</span>
-          <h2 className="section-title">Let's Work Together</h2>
+          <span className="section-tag"><span className="star-spin">✦</span> Get in Touch</span>
+          <h2 className="section-title">Let's Create Something Great</h2>
           <p className="section-subtitle">
-            Have a project in mind? I'd love to hear from you. Send a message and I'll get back within 24 hours.
+            Whether you have a specific project in mind or just want to say hi, my inbox is always open.
           </p>
         </motion.div>
 
-        <div className="contact-grid">
-          {/* Info */}
+        <div className="contact-container">
+          {/* Contact Info Deck */}
           <motion.div
-            className="contact-info"
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            className="contact-info-deck"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
           >
-            {[
-              { Icon: Mail,   label: 'Email',    value: 'wahidacse280@gmail.com' },
-              { Icon: MapPin, label: 'Location', value: 'Dhaka, Bangladesh' },
-              { Icon: Clock,  label: 'Phone',    value: '+8801980000857' },
-            ].map(({ Icon, label, value }) => (
-              <div key={label} className="contact-info-row">
-                <div className="contact-info-icon">
-                  <Icon size={18} />
-                </div>
-                <div>
-                  <span className="contact-info-label">{label}</span>
-                  <p className="contact-info-value">{value}</p>
-                </div>
+            <motion.div className="info-card" variants={itemVariants}>
+              <div className="info-icon">
+                <Mail size={20} />
               </div>
-            ))}
+              <div className="info-text">
+                <h4>Email Me</h4>
+                <a href="mailto:wahidacse280@gmail.com">wahidacse280@gmail.com</a>
+              </div>
+            </motion.div>
+
+            <motion.div className="info-card" variants={itemVariants}>
+              <div className="info-icon">
+                <Phone size={20} />
+              </div>
+              <div className="info-text">
+                <h4>Call Me</h4>
+                <a href="tel:+8801980000857">+8801980000857</a>
+              </div>
+            </motion.div>
+
+            <motion.div className="info-card" variants={itemVariants}>
+              <div className="info-icon">
+                <MapPin size={20} />
+              </div>
+              <div className="info-text">
+                <h4>Location</h4>
+                <span>Dhaka, Bangladesh</span>
+              </div>
+            </motion.div>
+
+            <motion.div className="info-card" variants={itemVariants}>
+              <div className="info-icon">
+                <MessageSquare size={20} />
+              </div>
+              <div className="info-text">
+                <h4>Freelance</h4>
+                <span>Available for projects</span>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Form */}
+          {/* New Professional Form */}
           <motion.form
-            className="contact-form glass-card"
+            className="professional-form glass-card"
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
+            <div className="form-grid">
+              <div className="input-group">
+                <label htmlFor="name"><User size={14} /> Full Name</label>
                 <input
-                  id="name" type="text" required placeholder="Your name"
+                  id="name" type="text" required placeholder="John Doe"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
+              <div className="input-group">
+                <label htmlFor="email"><AtSign size={14} /> Email Address</label>
                 <input
-                  id="email" type="email" required placeholder="your@email.com"
+                  id="email" type="email" required placeholder="john@example.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
               </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
+
+            <div className="input-group">
+              <label htmlFor="message"><MessageSquare size={14} /> Your Message</label>
               <textarea
-                id="message" rows={5} required placeholder="Tell me about your project..."
+                id="message" rows={6} required placeholder="How can I help you?"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
@@ -103,22 +144,30 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="btn-primary"
+              className="btn-primary submit-btn"
               disabled={status === 'sending'}
-              style={{ width: '100%', justifyContent: 'center' }}
             >
-              {status === 'sending' ? 'Sending…' : <><Send size={16} /> Send Message</>}
+              {status === 'sending' ? (
+                'Transmitting Message...'
+              ) : (
+                <>
+                  <span>Send Message</span>
+                  <Send size={18} className="send-icon" />
+                </>
+              )}
             </button>
 
             {status === 'success' && (
-              <motion.p className="form-feedback success" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <CheckCircle size={16} /> Message sent! I'll reply soon.
-              </motion.p>
+              <motion.div className="status-toast success" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                <CheckCircle size={18} /> 
+                <span>Message received! I'll get back to you shortly.</span>
+              </motion.div>
             )}
             {status === 'error' && (
-              <motion.p className="form-feedback error" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <AlertCircle size={16} /> Something went wrong. Try emailing directly.
-              </motion.p>
+              <motion.div className="status-toast error" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                <AlertCircle size={18} /> 
+                <span>Connection error. Please try again or email directly.</span>
+              </motion.div>
             )}
           </motion.form>
         </div>
