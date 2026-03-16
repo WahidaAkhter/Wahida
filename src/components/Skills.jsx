@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import IconCloud from './IconCloud';
 import './Skills.css';
 
 const skillGroups = [
@@ -23,6 +24,32 @@ const skillGroups = [
     color: '#f59e0b',
     skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux', 'Figma'],
   },
+];
+
+const iconSlugs = [
+  "typescript",
+  "javascript",
+  "nextdotjs",
+  "react",
+  "nodedotjs",
+  "express",
+  "framer",
+  "tailwindcss",
+  "gsap",
+  "mongodb",
+  "postgresql",
+  "mysql",
+  "redis",
+  "prisma",
+  "supabase",
+  "git",
+  "docker",
+  "amazonaws",
+  "linux",
+  "figma",
+  "python",
+  "fastapi",
+  "graphql"
 ];
 
 const SkillGroup = ({ group, gi }) => {
@@ -80,10 +107,21 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="skills-grid">
-          {skillGroups.map((group, gi) => (
-            <SkillGroup key={group.category} group={group} gi={gi} />
-          ))}
+        <div className="skills-container">
+          <motion.div 
+            className="skills-visual"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <IconCloud iconSlugs={iconSlugs} />
+          </motion.div>
+
+          <div className="skills-grid">
+            {skillGroups.map((group, gi) => (
+              <SkillGroup key={group.category} group={group} gi={gi} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
