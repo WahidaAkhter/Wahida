@@ -1,182 +1,163 @@
-.contact-wrapper {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+.baku-contact-wrapper {
   position: relative;
-  padding: 80px 0;
+  padding: 120px 0;
+  overflow: hidden;
 }
 
-.section-header.center {
-  text-align: center;
-  margin-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-container {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
-  align-items: start;
-}
-
-/* -- Info Deck -- */
-.contact-info-deck {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.info-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-sm);
-  transition: all 0.3s ease;
-}
-
-.info-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(0, 255, 133, 0.2);
-  transform: translateX(8px);
-}
-
-.info-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: rgba(0, 255, 133, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.info-text h4 {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-dim);
-  margin-bottom: 4px;
-}
-
-.info-text a, 
-.info-text span {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.info-text a:hover {
-  color: var(--accent);
-}
-
-/* -- Professional Form -- */
-.professional-form {
-  padding: 48px;
-  gap: 24px;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-grid {
+.baku-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* -- Left Side -- */
+.baku-left {
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.baku-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
 }
 
-.input-group label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.input-group input,
-.input-group textarea {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-sm);
-  padding: 14px 18px;
+.baku-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
   color: var(--text);
-  font-family: inherit;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  outline: none;
+  margin: 0;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
-  border-color: var(--accent);
-  background: rgba(0, 255, 133, 0.02);
-  box-shadow: 0 0 15px rgba(0, 255, 133, 0.05);
+.baku-title span {
+  font-style: italic;
+  color: var(--accent);
 }
 
-.submit-btn {
-  margin-top: 10px;
-  width: 100%;
-  justify-content: center;
-  height: 54px;
-  font-size: 1.05rem;
+.baku-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.send-icon {
-  transition: transform 0.3s ease;
-}
-
-.submit-btn:hover .send-icon {
-  transform: translate(4px, -4px);
-}
-
-/* -- Status Toasts -- */
-.status-toast {
+.baku-btn {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  margin-top: 10px;
+  width: fit-content;
+  padding: 18px 36px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
 }
 
-.status-toast.success {
-  background: rgba(74, 222, 128, 0.1);
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  color: #4ade80;
+.baku-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px var(--accent-glow);
+  filter: brightness(1.1);
 }
 
-.status-toast.error {
-  background: rgba(248, 113, 113, 0.1);
-  border: 1px solid rgba(248, 113, 113, 0.2);
-  color: #f87171;
+/* -- Right Side -- */
+.baku-right {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 900px) {
-  .contact-container {
+.baku-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+.baku-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.baku-value {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.baku-value.link:hover {
+  color: var(--accent);
+}
+
+.baku-mini-arrow {
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.baku-value.link:hover .baku-mini-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* -- Watermark -- */
+.baku-watermark {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  font-size: clamp(10rem, 25vw, 20rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 1;
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* -- Responsive -- */
+@media (max-width: 1024px) {
+  .baku-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .professional-form {
-    padding: 32px 24px;
+    gap: 60px;
   }
 }
 
 @media (max-width: 600px) {
-  .form-grid {
-    grid-template-columns: 1fr;
+  .baku-contact-wrapper {
+    padding: 80px 0;
+  }
+  
+  .baku-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 24px 0;
+  }
+  
+  .baku-value {
+    font-size: 1rem;
+    text-align: left;
   }
 }
