@@ -5,12 +5,12 @@ import './Projects.css';
 const rows = [
   [
     {
-      title: 'FinTrack Dashboard',
-      desc: 'Real-time financial tracking SaaS with interactive charts, CSV import, and multi-currency support.',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=400&h=700&auto=format&fit=crop',
-      github: 'https://github.com/WahidaAkhter',
-      live: 'https://example.com',
+      title: 'Pantry Pal AI',
+      desc: 'Smart recipe generator that helps you cook smarter and reduce food waste with what you already have.',
+      tags: ['React', 'AI', 'Tailwind'],
+      img: '/pantry_pal.png',
+      github: 'https://github.com/WahidaAkhter/pantry-pal',
+      live: 'https://pantry-pal-ai.netlify.app/',
     },
     {
       title: 'StyleAI',
