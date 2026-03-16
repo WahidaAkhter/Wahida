@@ -1,74 +1,58 @@
 .footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 24px;
-  margin-bottom: 100px; /* space for dock navbar */
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 40px 24px;
+  margin-bottom: 0;
+  background: transparent;
 }
 
 .footer-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--accent);
-  color: var(--accent-deep);
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-brand p {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-}
-
-.footer-socials {
-  display: flex;
-  gap: 10px;
-}
-
-.footer-social {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
-}
-
-.footer-social:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
-}
-
-.footer-copy {
-  font-size: 0.8rem;
   color: var(--text-dim);
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.heart {
-  color: #f87171;
+.footer-inner span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+  
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    font-size: 0.65rem;
+  }
+  
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
 }
