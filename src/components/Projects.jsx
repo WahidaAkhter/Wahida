@@ -12,12 +12,12 @@ const projectsList = [
     live: 'https://pantry-pal-ai.netlify.app/',
   },
   {
-    title: 'StyleAI',
-    desc: 'AI-powered fashion recommendation engine that analyses wardrobe images and suggests outfits.',
-    tags: ['Python', 'FastAPI', 'TensorFlow'],
-    img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=400&h=700&auto=format&fit=crop',
-    github: 'https://github.com/WahidaAkhter',
-    live: 'https://example.com',
+    title: 'TurfMasterPro',
+    desc: 'Comprehensive turf management application for booking, scheduling, and tracking sports field activities.',
+    tags: ['React', 'Tailwind', 'Node.js'],
+    img: '/turfmasterpro.png',
+    github: 'https://github.com/WahidaAkhter/TurfMasterPro',
+    live: 'https://github.com/WahidaAkhter/TurfMasterPro',
   },
   {
     title: 'DevBoard',
