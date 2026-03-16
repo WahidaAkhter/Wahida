@@ -1,8 +1,8 @@
 .footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.03);
-  padding: 40px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  padding: 30px 24px;
   margin-bottom: 0;
-  background: transparent;
+  background: #001A3D; /* Even Darker Blue Shade */
 }
 
 .footer-inner {
