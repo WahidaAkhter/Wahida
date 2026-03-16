@@ -50,9 +50,9 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {[
-              { Icon: Mail,   label: 'Email',    value: 'wahida@example.com' },
+              { Icon: Mail,   label: 'Email',    value: 'wahidacse280@gmail.com' },
               { Icon: MapPin, label: 'Location', value: 'Dhaka, Bangladesh' },
-              { Icon: Clock,  label: 'Response', value: 'Within 24 hours' },
+              { Icon: Clock,  label: 'Phone',    value: '+8801980000857' },
             ].map(({ Icon, label, value }) => (
               <div key={label} className="contact-info-row">
                 <div className="contact-info-icon">

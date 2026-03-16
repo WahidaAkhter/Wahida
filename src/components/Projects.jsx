@@ -4,59 +4,35 @@ import './Projects.css';
 
 const projectsList = [
   {
-    title: 'Pantry Pal AI',
-    desc: 'Smart recipe generator that helps you cook smarter and reduce food waste with what you already have.',
-    tags: ['React', 'AI', 'Tailwind'],
+    title: 'PantryPal AI',
+    desc: 'AI-powered recipe app integrating Google Gemini 2.0 Flash for on-demand recipe generation and Spoonacular API for ingredient-based search.',
+    tags: ['React 19', 'Vite', 'Gemini AI', 'Tailwind'],
     img: '/pantry_pal.png',
     github: 'https://github.com/WahidaAkhter/pantry-pal',
     live: 'https://pantry-pal-ai.netlify.app/',
   },
   {
     title: 'TurfMasterPro',
-    desc: 'Comprehensive turf management application for booking, scheduling, and tracking sports field activities.',
-    tags: ['React', 'Tailwind', 'Node.js'],
+    desc: 'Scalable workspace automation platform with an intuitive booking system, streamlining operations and optimizing resource allocation.',
+    tags: ['React.js', 'Node.js', 'SQL', 'REST APIs'],
     img: '/turfmasterpro.png',
     github: 'https://github.com/WahidaAkhter/TurfMasterPro',
     live: 'https://github.com/WahidaAkhter/TurfMasterPro',
   },
   {
-    title: 'DevBoard',
-    desc: 'Integrated project management for developers with Kanban boards, CI metrics, and Slack alerting.',
-    tags: ['TypeScript', 'Next.js', 'PostgreSQL'],
+    title: 'Artificer At Your Door',
+    desc: 'Service-oriented Android app connecting customers with home maintenance professionals, enabling real-time booking and management.',
+    tags: ['Java', 'Android SDK', 'Android Studio'],
     img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&h=700&auto=format&fit=crop',
-    github: 'https://github.com/WahidaAkhter',
-    live: 'https://example.com',
-  },
-  {
-    title: 'EduStream',
-    desc: 'Live classroom platform with video streaming, real-time chat, whiteboard, and quiz features.',
-    tags: ['WebRTC', 'Socket.io', 'React'],
-    img: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=400&h=700&auto=format&fit=crop',
-    github: 'https://github.com/WahidaAkhter',
-    live: 'https://example.com',
-  },
-  {
-    title: 'ShopSense',
-    desc: 'E-commerce platform with AI search, personalised recommendations, and one-click checkout.',
-    tags: ['Next.js', 'Stripe', 'Elasticsearch'],
-    img: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=400&h=700&auto=format&fit=crop',
-    github: 'https://github.com/WahidaAkhter',
-    live: 'https://example.com',
-  },
-  {
-    title: 'NightOwl Blog',
-    desc: 'SEO-optimised markdown blog with dark theme toggle, reading-time estimates, and a comment system.',
-    tags: ['Astro', 'Tailwind', 'Sanity CMS'],
-    img: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=400&h=700&auto=format&fit=crop',
-    github: 'https://github.com/WahidaAkhter',
-    live: 'https://example.com',
+    github: 'https://github.com/WahidaAkhter/Artificeratyourdoor',
+    live: 'https://github.com/WahidaAkhter/Artificeratyourdoor',
   },
 ];
 
 const columns = [
-  [projectsList[0], projectsList[3]],
-  [projectsList[1], projectsList[4]],
-  [projectsList[2], projectsList[5]],
+  [projectsList[0]],
+  [projectsList[1]],
+  [projectsList[2]],
 ];
 
 const MasonryColumn = ({ projects, reverse }) => {

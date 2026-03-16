@@ -3,9 +3,24 @@ import { motion, useInView } from 'framer-motion';
 import './About.css';
 
 const timeline = [
-  { year: '2024–Present', role: 'Full-Stack Developer', company: 'Freelance', desc: 'Building custom web apps for clients across Europe and North America.' },
-  { year: '2022–2024', role: 'Frontend Engineer', company: 'TechFusion Ltd', desc: 'Led UI development for a SaaS dashboard used by 10k+ users.' },
-  { year: '2020–2022', role: 'Junior Developer', company: 'PixelBridge Agency', desc: 'Built responsive websites and e-commerce solutions for local businesses.' },
+  { 
+    year: '2025–Present', 
+    role: 'Master of Information Technology (MIT)', 
+    company: 'Dhaka University', 
+    desc: 'Institute of Information Technology (IIT). Focusing on advanced software engineering and information systems.' 
+  },
+  { 
+    year: 'July 2025 – Sep 2025', 
+    role: 'Software Developer Intern', 
+    company: 'Alwaysblue', 
+    desc: 'Engineered 10+ responsive UI components and developed RESTful APIs in an agile team environment.' 
+  },
+  { 
+    year: 'Completed 2025', 
+    role: 'BSc in Computer Science & Engineering', 
+    company: 'National University', 
+    desc: 'Graduated with a CGPA of 3.47/4.00, building a strong foundation in core computer science concepts.' 
+  },
 ];
 
 function TimelineItem({ item, index }) {
@@ -45,15 +60,15 @@ export default function About() {
             transition={{ duration: 0.65 }}
           >
             <span className="section-tag"><span className="star-spin">✦</span> About Me</span>
-            <h2 className="section-title">Passionate about<br />Building &amp; Design</h2>
+            <h2 className="section-title">Bridging Code<br />&amp; Innovation</h2>
             <p className="section-subtitle" style={{ marginBottom: 20 }}>
-              I'm a full-stack developer with a love for crafting beautiful digital experiences.
-              I bridge the gap between design and engineering, ensuring every product I build
-              is both visually polished and technically robust.
+              I'm a Master's student at the Institute of Information Technology, <strong>Dhaka University</strong>. 
+              With a background in Computer Science & Engineering, I have hands-on experience in 
+              full-stack web development, Android development, and AI-powered applications.
             </p>
             <p className="section-subtitle">
-              When I'm not coding, you'll find me exploring UI trends, reading about machine
-              learning, or enjoying a good cup of chai ☕.
+              I'm proficient in React.js, Node.js, and Java, always striving to build impactful solutions 
+              that solve real-world problems through clean code and intuitive design.
             </p>
           </motion.div>
 

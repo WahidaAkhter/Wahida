@@ -89,7 +89,7 @@ export default function Hero() {
                 <span className="available-dot" title="Available for work" />
               </div>
               <h2 className="profile-name">Wahida Akhter</h2>
-              <p className="profile-role">Creative Developer</p>
+              <p className="profile-role">Software Developer Intern</p>
               <div className="profile-location">
                 <MapPin size={14} />
                 <span>Dhaka, Bangladesh</span>
@@ -200,7 +200,7 @@ export default function Hero() {
             </div>
           </motion.h1>
           <motion.p className="hero-sub" {...fadeUp(0.3)}>
-            Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.
+            Master's student at Dhaka University. Full-stack developer with hands-on experience in React.js, Node.js, and AI-powered applications.
           </motion.p>
 
           {/* Decorative Logo Loop */}

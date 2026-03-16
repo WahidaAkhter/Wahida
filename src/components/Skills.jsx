@@ -16,14 +16,14 @@ const skillGroups = [
     skills: ['Node.js', 'Express', 'Python', 'FastAPI', 'REST APIs', 'GraphQL'],
   },
   {
-    category: 'Database',
-    color: '#10b981',
-    skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Prisma', 'Supabase'],
+    category: 'Mobile Development',
+    color: '#34d399',
+    skills: ['Android App Development', 'Android Studio', 'Android SDK'],
   },
   {
-    category: 'DevOps & Tools',
+    category: 'Tools & Platforms',
     color: '#f59e0b',
-    skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Linux', 'Figma'],
+    skills: ['Git', 'GitHub', 'Netlify', 'VS Code', 'SQL'],
   },
 ];
 
