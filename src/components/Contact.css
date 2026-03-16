@@ -20,12 +20,7 @@
   gap: 24px;
 }
 
-.baku-tag {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--text-dim);
-}
+/* .baku-tag removed for consistency with site-wide section-tag */
 
 .baku-title {
   font-family: 'Playfair Display', serif;

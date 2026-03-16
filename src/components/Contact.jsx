@@ -27,7 +27,7 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             ref={ref}
           >
-            <span className="baku-tag">— CONTACT</span>
+            <span className="section-tag"><span className="star-spin">✦</span> Contact</span>
             <h2 className="baku-title">Let's <span>connect.</span></h2>
             <p className="baku-desc">
               Open to new engineering roles, research collaborations, and exciting 
