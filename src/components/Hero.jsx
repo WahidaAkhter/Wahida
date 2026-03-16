@@ -41,9 +41,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 const slideFromTopLeft = (delay = 0) => ({
-  initial: { opacity: 0, x: -60, y: -60 },
+  initial: { opacity: 0, x: "-100vw", y: "-100vh" },
   animate: { opacity: 1, x: 0, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { 
+    type: "spring",
+    damping: 25,
+    stiffness: 80,
+    delay 
+  },
 });
 
 export default function Hero() {
@@ -61,7 +66,16 @@ export default function Hero() {
       <div className="hero-inner">
 
         {/* Left — Profile Card */}
-        <motion.div className="profile-card" {...slideFromTopLeft(0.1)}>
+        <motion.div 
+          variants={slideFromTopLeft(0.1)}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.div 
+            className="profile-card"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+          >
           <MagicBento 
             enableStars
             enableSpotlight
@@ -121,6 +135,7 @@ export default function Hero() {
               </div>
             </div>
           </MagicBento>
+          </motion.div>
         </motion.div>
 
         {/* Right — Headline */}
