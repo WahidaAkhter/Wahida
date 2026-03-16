@@ -8,7 +8,7 @@ export default function Footer() {
           © {new Date().getFullYear()} <span>Wahida Akhter</span>
         </div>
         <div className="footer-center">
-          Built with passion & <span>fueled by coffee</span>
+          90% code, <span>10% searching for my lost focus</span>
         </div>
         <div className="footer-right">
           Dhaka, Bangladesh
