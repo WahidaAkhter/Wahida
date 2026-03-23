@@ -44,12 +44,20 @@ const projectsList = [
     github: 'https://github.com/WahidaAkhter/Nike-React',
     live: 'https://nike-react-infinity-fun.netlify.app/',
   },
+  {
+    title: 'Phone Arena',
+    desc: 'A phone search app powered by a public API — search any phone model and instantly see specs, brand, and image details in a clean, mobile-first UI.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'REST API'],
+    img: '/phone_arena.png',
+    github: 'https://github.com/WahidaAkhter/Phone-Arena',
+    live: 'https://heroic-starship-0d62ee.netlify.app/',
+  },
 ];
 
 const columns = [
   [projectsList[0], projectsList[3]],
   [projectsList[1], projectsList[4]],
-  [projectsList[2]],
+  [projectsList[2], projectsList[5]],
 ];
 
 const MasonryCard = ({ p }) => {
