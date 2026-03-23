@@ -78,12 +78,12 @@
 
 .masonry-img {
   width: 100%;
-  height: auto;
-  min-height: 350px;
+  height: 420px;
   display: block;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s;
-  filter: brightness(0.85);
+  filter: brightness(0.88);
 }
 
 .masonry-item:hover .masonry-img {
