@@ -59,12 +59,36 @@ const projectsList = [
     github: 'https://github.com/WahidaAkhter/add-to-cart-your-toy',
     live: 'https://kids-toystore.netlify.app/',
   },
+  {
+    title: 'Weattle',
+    desc: 'An independent service provider platform offering specialized tour packages with secure authentication, private routing, and a responsive booking interface.',
+    tags: ['React', 'Firebase Auth', 'React Router', 'Bootstrap'],
+    img: '/weattle.png',
+    github: 'https://github.com/WahidaAkhter/weattle',
+    live: 'https://weattle.netlify.app/',
+  },
+  {
+    title: 'G3 Architects',
+    desc: 'An elegant landing page website designed for an architecture firm, featuring a sophisticated layout built with semantic HTML5 and clean CSS3.',
+    tags: ['HTML5', 'CSS3', 'Responsive Design', 'Landing Page'],
+    img: '/g3_architects.png',
+    github: 'https://github.com/WahidaAkhter/G3-Architects',
+    live: 'https://wahidaakhter.github.io/G3-Architects/',
+  },
+  {
+    title: 'Flower Shop',
+    desc: 'An elegant and vibrant flower shop landing page featuring promotional banners, clean layouts, and beautiful typography built with pure HTML5 and CSS3.',
+    tags: ['HTML5', 'CSS3', 'Landing Page', 'Responsive'],
+    img: '/flower_shop.png',
+    github: 'https://github.com/WahidaAkhter/Flower-shop',
+    live: 'https://wahidaakhter.github.io/Flower-shop/',
+  },
 ];
 
 const columns = [
-  [projectsList[0], projectsList[3]],
-  [projectsList[1], projectsList[4]],
-  [projectsList[2], projectsList[5], projectsList[6]],
+  [projectsList[0], projectsList[3], projectsList[6], projectsList[9]],
+  [projectsList[1], projectsList[4], projectsList[7]],
+  [projectsList[2], projectsList[5], projectsList[8]],
 ];
 
 const MasonryColumn = ({ projects, reverse }) => {
