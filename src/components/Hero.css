@@ -27,26 +27,17 @@
   width: 100%;
 }
 
-/* -- Profile Card -- */
 .profile-card {
   flex-shrink: 0;
   width: 300px;
-  background: transparent;
+  background: linear-gradient(180deg, rgba(0, 70, 40, 0.4) 0%, rgba(8, 13, 20, 0.95) 100%);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--radius);
+  border: 1px solid rgba(0, 255, 133, 0.2);
   box-shadow: var(--card-shadow);
   overflow: hidden;
   padding: 0;
-  /* Let MagicBento handle edge to edge */
-}
-
-.profile-card-magic {
-  width: 100% !important;
-  height: 100% !important;
-  background: linear-gradient(180deg, rgba(0, 70, 40, 0.4) 0%, rgba(8, 13, 20, 0.95) 100%) !important;
-  border-radius: var(--radius) !important;
-  border: 1px solid rgba(0, 255, 133, 0.2) !important;
 }
 
 .profile-card-content {

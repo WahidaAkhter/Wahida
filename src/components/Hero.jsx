@@ -74,14 +74,11 @@ export default function Hero() {
           <motion.div 
             className="profile-card"
             animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-          >
-          <MagicBento 
-            enableStars
-            enableSpotlight
-            enableBorderGlow
-            glowColor="0, 255, 133"
-            className="profile-card-magic"
+            transition={{ 
+              duration: 5, 
+              repeat: Infinity,
+              ease: "easeInOut" 
+            }}
           >
             <div className="profile-card-content">
               <div className="avatar-ring">
@@ -134,7 +131,6 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-          </MagicBento>
           </motion.div>
         </motion.div>
 
@@ -163,14 +159,14 @@ export default function Hero() {
                 {word}&nbsp;
               </motion.span>
             ))}
-            <div style={{ position: 'relative', display: 'inline-flex', verticalAlign: 'middle' }}>
-              <AnimatePresence mode="wait">
+            <div style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em', minWidth: '280px', verticalAlign: 'middle' }}>
+              <AnimatePresence>
                 <motion.div 
                   key={words[index]}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  style={{ display: 'flex' }}
+                  style={{ display: 'flex', position: 'absolute', top: 0, left: 0 }}
                 >
                   {words[index].split("").map((char, i) => (
                     <motion.span
