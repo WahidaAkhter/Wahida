@@ -27,10 +27,18 @@ const projectsList = [
     github: 'https://github.com/WahidaAkhter/Artificeratyourdoor',
     live: 'https://github.com/WahidaAkhter/Artificeratyourdoor',
   },
+  {
+    title: 'Panda Commerce',
+    desc: 'A vibrant e-commerce site featuring a product carousel, shopping cart, responsive design, trust signals, and testimonials — built with pure HTML, CSS & JS.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
+    img: 'https://raw.githubusercontent.com/WahidaAkhter/Panda-Commerce-Site/main/screenshots/hero.png',
+    github: 'https://github.com/WahidaAkhter/Panda-Commerce-Site',
+    live: 'https://wondrous-palmier-85c0bb.netlify.app/',
+  },
 ];
 
 const columns = [
-  [projectsList[0]],
+  [projectsList[0], projectsList[3]],
   [projectsList[1]],
   [projectsList[2]],
 ];
