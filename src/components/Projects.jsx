@@ -15,7 +15,7 @@ const projectsList = [
     title: 'TurfMasterPro',
     desc: 'Scalable workspace automation platform with an intuitive booking system, streamlining operations and optimizing resource allocation.',
     tags: ['React.js', 'Node.js', 'SQL', 'REST APIs'],
-    img: '/turfmasterpro.png',
+    img: 'https://raw.githubusercontent.com/WahidaAkhter/TurfMasterPro/main/TurfMasterPro-main/public/images/screenshot_home.png',
     github: 'https://github.com/WahidaAkhter/TurfMasterPro',
     live: 'https://github.com/WahidaAkhter/TurfMasterPro',
   },
