@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: flex-start;
 }
 
 /* .baku-tag removed for consistency with site-wide section-tag */
