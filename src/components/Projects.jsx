@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './Projects.css';
 
@@ -35,56 +35,89 @@ const projectsList = [
     github: 'https://github.com/WahidaAkhter/Panda-Commerce-Site',
     live: 'https://wondrous-palmier-85c0bb.netlify.app/',
   },
+  {
+    title: 'Nike React',
+    desc: 'A sleek Nike-inspired e-commerce storefront with product showcase, shopping cart, and fully responsive mobile-first design built with React & Bootstrap.',
+    tags: ['React', 'Bootstrap 5', 'JavaScript', 'Netlify'],
+    img: 'https://raw.githubusercontent.com/WahidaAkhter/Nike-React/main/docs/screenshots/shopping_vibe.png',
+    video: '/nike_preview.webp',
+    github: 'https://github.com/WahidaAkhter/Nike-React',
+    live: 'https://nike-react-infinity-fun.netlify.app/',
+  },
 ];
 
 const columns = [
   [projectsList[0], projectsList[3]],
-  [projectsList[1]],
+  [projectsList[1], projectsList[4]],
   [projectsList[2]],
 ];
 
+const MasonryCard = ({ p }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="masonry-item"
+      onClick={() => window.open(p.live, '_blank')}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Static screenshot */}
+      <img
+        src={p.img}
+        alt={p.title}
+        className={`masonry-img${hovered && p.video ? ' masonry-img-hidden' : ''}`}
+      />
+
+      {/* Animated WebP video preview — only for projects with a video prop */}
+      {p.video && (
+        <img
+          src={p.video}
+          alt={`${p.title} preview`}
+          className={`masonry-video-preview${hovered ? ' visible' : ''}`}
+        />
+      )}
+
+      {/* Text overlay */}
+      <div className="masonry-overlay-bg">
+        <div className="masonry-overlay-content">
+          <div className="masonry-tags">
+            {p.tags.map((t) => <span key={t} className="masonry-tag">{t}</span>)}
+          </div>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+          <div className="masonry-actions">
+            <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn">
+              GitHub ↗
+            </a>
+            <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn masonry-btn-live">
+              Live ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const MasonryColumn = ({ projects, reverse }) => {
-  // Duplicate for seamless infinite scroll
   const items = [...projects, ...projects, ...projects, ...projects];
 
   return (
-    <div 
-      className="scroll-column" 
-      style={{ 
-        height: '100%', 
-        overflow: 'hidden', 
-        position: 'relative', 
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)', 
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)', 
-        minWidth: 0 
+    <div
+      className="scroll-column"
+      style={{
+        height: '100%',
+        overflow: 'hidden',
+        position: 'relative',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+        minWidth: 0
       }}
     >
       <div className={`scroll-track ${reverse ? 'reverse' : ''}`} style={{ animationDuration: '40s' }}>
         {items.map((p, i) => (
-          <div key={`${p.title}-${i}`} className="masonry-item" onClick={() => window.open(p.live, '_blank')}>
-            <img 
-              src={p.img} 
-              alt={p.title} 
-              className="masonry-img"
-            />
-            <div className="masonry-overlay-bg">
-              <div className="masonry-overlay-content">
-                <div className="masonry-tags">
-                  {p.tags.map((t) => <span key={t} className="masonry-tag">{t}</span>)}
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <div className="masonry-actions">
-                  <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn">
-                    GitHub ↗
-                  </a>
-                  <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn masonry-btn-live">
-                    Live ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MasonryCard key={`${p.title}-${i}`} p={p} />
         ))}
       </div>
     </div>
@@ -108,7 +141,7 @@ export default function Projects() {
           <span className="section-tag"><span className="star-spin">✦</span> My Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Hover over the columns to pause the scroll and explore recent projects.
+            Hover over a card to see a live preview, or click to visit the project.
           </p>
         </motion.div>
 

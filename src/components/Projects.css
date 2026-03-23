@@ -91,6 +91,30 @@
   filter: brightness(0.5);
 }
 
+/* Animated WebP video preview on hover */
+.masonry-img-hidden {
+  opacity: 0;
+  transform: scale(1) !important;
+}
+
+.masonry-video-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.masonry-video-preview.visible {
+  opacity: 1;
+}
+
 /* Overlay Background */
 .masonry-overlay-bg {
   position: absolute;
