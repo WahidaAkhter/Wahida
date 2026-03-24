@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import './Projects.css';
 
 const projectsList = [
@@ -85,68 +85,58 @@ const projectsList = [
   },
 ];
 
-const columns = [
-  [projectsList[0], projectsList[3], projectsList[6], projectsList[9]],
-  [projectsList[1], projectsList[4], projectsList[7]],
-  [projectsList[2], projectsList[5], projectsList[8]],
-];
-
-const MasonryColumn = ({ projects, reverse }) => {
-  const items = [...projects, ...projects, ...projects, ...projects];
-
-  return (
-    <div
-      className="scroll-column"
-      style={{
-        height: '100%',
-        overflow: 'hidden',
-        position: 'relative',
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-        minWidth: 0
-      }}
-    >
-      <div className={`scroll-track ${reverse ? 'reverse' : ''}`} style={{ animationDuration: '40s' }}>
-        {items.map((p, i) => (
-          <div key={`${p.title}-${i}`} className="masonry-item" onClick={() => window.open(p.live, '_blank')}>
-            <img
-              src={p.img}
-              alt={p.title}
-              className="masonry-img"
-            />
-            <div className="masonry-overlay-bg">
-              <div className="masonry-overlay-content">
-                <div className="masonry-tags">
-                  {p.tags.map((t) => <span key={t} className="masonry-tag">{t}</span>)}
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <div className="masonry-actions">
-                  <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn">
-                    GitHub ↗
-                  </a>
-                  <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="masonry-btn masonry-btn-live">
-                    Live ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+const ProjectCard = ({ p }) => (
+  <div className="diagonal-item" onClick={() => window.open(p.live, '_blank')}>
+    <img src={p.img} alt={p.title} className="diagonal-img" />
+    <div className="diagonal-overlay">
+      <div className="diagonal-overlay-content">
+        <div className="diagonal-tags">
+          {p.tags.slice(0, 3).map((t) => <span key={t} className="diagonal-tag">{t}</span>)}
+        </div>
+        <h3>{p.title}</h3>
+        <p>{p.desc}</p>
+        <div className="diagonal-actions">
+          <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="diagonal-btn">
+            GitHub ↗
+          </a>
+          <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="diagonal-btn diagonal-btn-live">
+            Live ↗
+          </a>
+        </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default function Projects() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const containerRef = useRef(null);
+  
+  // Diagonal animation on scroll
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Moves Left and Up during page down-scroll, simulating diagonal movement
+  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-15%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["5%", "-15%"]);
+
+  const headerRef = useRef(null);
+  const inView = useInView(headerRef, { once: true, margin: '-60px' });
+
+  // Triple projects for infinite-like rows
+  const extendedProjects = [...projectsList, ...projectsList, ...projectsList];
+  
+  const itemsPerRow = Math.ceil(extendedProjects.length / 3);
+  const row1 = extendedProjects.slice(0, itemsPerRow);
+  const row2 = extendedProjects.slice(itemsPerRow, itemsPerRow * 2);
+  const row3 = extendedProjects.slice(itemsPerRow * 2, itemsPerRow * 3);
 
   return (
-    <section id="projects">
-      <div className="section">
+    <section id="projects" ref={containerRef} style={{ overflow: 'hidden' }}>
+      <div className="section" style={{ position: 'relative' }}>
         <motion.div
-          ref={ref}
+          ref={headerRef}
           className="section-header"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -155,22 +145,23 @@ export default function Projects() {
           <span className="section-tag"><span className="star-spin">✦</span> My Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Hover over the columns to pause the scroll and explore recent projects.
+            Hover to view full details. Scroll down to see the diagonal motion.
           </p>
         </motion.div>
 
-        <motion.div
-          className="masonry-wrapper"
-          initial={{ opacity: 0, y: 32 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          <div className="masonry-grid">
-            <MasonryColumn projects={columns[0]} />
-            <MasonryColumn projects={columns[1]} reverse />
-            <MasonryColumn projects={columns[2]} />
-          </div>
-        </motion.div>
+        <div className="diagonal-gallery-wrapper">
+          <motion.div className="diagonal-grid" style={{ x, y }}>
+            <div className="diagonal-row">
+              {row1.map((p, i) => <ProjectCard p={p} key={`r1-${i}`} />)}
+            </div>
+            <div className="diagonal-row" style={{ marginLeft: '-150px' }}>
+              {row2.map((p, i) => <ProjectCard p={p} key={`r2-${i}`} />)}
+            </div>
+            <div className="diagonal-row" style={{ marginLeft: '-300px' }}>
+              {row3.map((p, i) => <ProjectCard p={p} key={`r3-${i}`} />)}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
