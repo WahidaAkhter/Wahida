@@ -27,7 +27,7 @@ const techLogos = [
 ];
 
 const stats = [
-  { value: '+3', label: 'Years Experience' },
+  { value: '10+', label: 'Tech Skills' },
   { value: '+15', label: 'Projects Done' },
   { value: '+10', label: 'Recent Projects' },
 ];
