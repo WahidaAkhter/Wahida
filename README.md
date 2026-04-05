@@ -9,6 +9,8 @@
 
 <br />
 
+**🔗 [Live Preview: Wahida's Portfolio](https://wahidas-portfolio.netlify.app/)**
+
 Welcome to the repository for my personal portfolio! This project is a premium, dark-themed web application designed to showcase my journey as a developer, highlighting my projects, technical stack, and professional experience through a highly interactive and cinematic user interface.
 
 ## 🚀 Experience the Flow
@@ -22,17 +24,26 @@ The site is built with a heavy focus on performance, smooth transitions, and a m
 - **Floating Dock Navigation**: A pill-shaped, interactive navbar with scroll-spy active state tracking.
 - **Express Backend Integration**: A Node.js API infrastructure to handle contact form submissions and local processes.
 
-## 🛠️ Tech Stack
+## 🛠️ Comprehensive Tech Stack
 
-**Frontend Architecture:**
-- **Core Engine**: React 19, Vite, Context APIs
-- **Styling**: Vanilla CSS leveraging modern features like Custom Variables, grid systems, `color-mix()` for dynamic transparency, and high-end glassmorphism.
-- **Animation Framework**: *Framer Motion* for intricate scroll-driven parallax movements (`useScroll`, `useTransform`, `useInView`), and *React Icon Cloud* for 3D visualizations.
-- **Typography & Assets**: Lucide React Icons, Outfit typography suite.
+To ensure a highly responsive, visually stunning, and scalable application, I engineered this portfolio using a modern, industry-standard technology stack:
 
-**Backend Setup:**
-- **Environment**: Node.js, Express
-- **Middlewares**: CORS, Dotenv
+**Frontend Ecosystem:**
+- **Core Framework**: React (v19) & Vite (for lightning-fast hot module replacement and optimized production builds)
+- **State Management**: React Context APIs & Custom Hooks
+- **Styling Engine**: Advanced Vanilla CSS3 leveraging design tokens (CSS Variables), intricate CSS Grid/Flexbox layouts, `color-mix()` for dynamic transparency, and high-end glassmorphism UI techniques.
+- **Animation & Physics**: *Framer Motion* orchestrating complex scroll-driven parallax movements (`useScroll`, `useTransform`), element reveal sequences, layout transitions, and spring physics.
+- **3D Visualizations**: *React Icon Cloud* implementing mathematical spherical distribution for an interactive tech skill cloud.
+- **Typography & UI Assets**: Custom SVGs via *Lucide React* and the premium Google *Outfit* typography suite.
+
+**Backend & API Infrastructure:**
+- **Runtime Environment**: Node.js
+- **Server Framework**: Express.js for structuring RESTful API endpoints and handling local requests.
+- **Security & Middleware**: CORS (Cross-Origin Resource Sharing) for safe cross-origin requests, `dotenv` for secure environment variable management.
+
+**Deployment & DevOps:**
+- **Hosting & CI/CD**: Netlify for continuous integration, automated builds, and global edge network delivery.
+- **Version Control**: Git & GitHub
 
 ## 🏁 Getting Started
 
