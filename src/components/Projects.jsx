@@ -4,12 +4,36 @@ import './Projects.css';
 
 const projectsList = [
   {
+    title: 'AI Agent Builder',
+    desc: 'A dynamic, drag-and-drop interface engineered to build custom AI personalities, utilizing Zustand for scalable global state management and Framer Motion for highly fluid micro-interactions.',
+    tags: ['React 18+', 'TypeScript', 'Zustand', 'dnd-kit'],
+    img: '/ai_agent_builder.png',
+    github: 'https://github.com/WahidaAkhter/ai-agent-builder',
+    live: 'https://github.com/WahidaAkhter/ai-agent-builder',
+  },
+  {
     title: 'PantryPal AI',
     desc: 'AI-powered recipe app integrating Google Gemini 2.0 Flash for on-demand recipe generation and Spoonacular API for ingredient-based search.',
     tags: ['React 19', 'Vite', 'Gemini AI', 'Tailwind'],
     img: '/pantry_pal.png',
     github: 'https://github.com/WahidaAkhter/pantry-pal',
     live: 'https://pantry-pal-ai.netlify.app/',
+  },
+  {
+    title: 'Bangalore Convention Center',
+    desc: 'An elegant and fully responsive event venue landing page featuring clean layouts, beautiful imagery, and custom subscriptions built entirely with semantic HTML5 and vanilla CSS3.',
+    tags: ['HTML5', 'CSS3', 'Responsive', 'Landing Page'],
+    img: '/bangalore_convention_center.png',
+    github: 'https://github.com/WahidaAkhter/bangalore-convention-center',
+    live: 'https://wahidaakhter.github.io/bangalore-convention-center/',
+  },
+  {
+    title: 'Rent A Bike',
+    desc: 'A dynamic bike rental web application featuring an interactive dashboard, clean UI, and seamless booking capabilities built with React and styled for maximum engagement.',
+    tags: ['React', 'JavaScript', 'Frontend', 'Web App'],
+    img: '/rent_a_bike.png',
+    github: 'https://github.com/WahidaAkhter/rent-a-bike',
+    live: 'https://wahidaakhter.github.io/rent-a-bike/',
   },
   {
     title: 'TurfMasterPro',
@@ -124,13 +148,21 @@ export default function Projects() {
   const headerRef = useRef(null);
   const inView = useInView(headerRef, { once: true, margin: '-60px' });
 
-  // Triple projects for infinite-like rows
-  const extendedProjects = [...projectsList, ...projectsList, ...projectsList];
-  
-  const itemsPerRow = Math.ceil(extendedProjects.length / 3);
-  const row1 = extendedProjects.slice(0, itemsPerRow);
-  const row2 = extendedProjects.slice(itemsPerRow, itemsPerRow * 2);
-  const row3 = extendedProjects.slice(itemsPerRow * 2, itemsPerRow * 3);
+  // Distribute projects among 3 rows so they don't repeat vertically
+  const baseRow1 = [];
+  const baseRow2 = [];
+  const baseRow3 = [];
+
+  projectsList.forEach((p, i) => {
+    if (i % 3 === 0) baseRow1.push(p);
+    else if (i % 3 === 1) baseRow2.push(p);
+    else baseRow3.push(p);
+  });
+
+  // Multiply the rows to simulate infinite horizontal flow and fill the screen
+  const row1 = [...baseRow1, ...baseRow1, ...baseRow1, ...baseRow1];
+  const row2 = [...baseRow2, ...baseRow2, ...baseRow2, ...baseRow2];
+  const row3 = [...baseRow3, ...baseRow3, ...baseRow3, ...baseRow3];
 
   return (
     <section id="projects" ref={containerRef} style={{ overflow: 'hidden' }}>
@@ -145,7 +177,7 @@ export default function Projects() {
           <span className="section-tag"><span className="star-spin">✦</span> My Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Hover to view full details. Scroll down to see the diagonal motion.
+            Dive into a showcase of my latest digital creations! ✨ 
           </p>
         </motion.div>
 
